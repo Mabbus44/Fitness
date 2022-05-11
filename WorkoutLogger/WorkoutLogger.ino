@@ -15,6 +15,7 @@ int activityId = 0;
 enum menuStates {CHOOSE_ACTIVITY, CHOOSE_VALUE};
 int menuState=CHOOSE_ACTIVITY;
 int decimals = 0;
+bool sleep = true;
 
 String getDecimalStr(int val, int dec){
   String ret;
@@ -26,6 +27,10 @@ String getDecimalStr(int val, int dec){
 }
 
 void setup() {
+  pinMode(10, OUTPUT);
+  pinMode(13, OUTPUT);
+  digitalWrite(10, sleep);
+  digitalWrite(13, sleep);
   lcd.begin(16,2);
   wifi.connect();
   lcd.clear();
@@ -35,6 +40,9 @@ void setup() {
 
 void loop() {
   if(bUpp.pressed()){
+    sleep = !sleep;
+    digitalWrite(10, sleep);
+    digitalWrite(13, sleep);
     if(menuState==CHOOSE_ACTIVITY){
       activityId++;
       if(activityId==activityCount)

@@ -4,15 +4,22 @@
         <script src = "./Fitness/jQuery.js"></script>
         <script src = "./Fitness/highcharts.js"></script> 
         <script src = "./Fitness/heatmap.js"></script> 
+        <script src = "./Fitness/grouped-categories.js"></script> 
         <script src = "./Fitness/fitness.js"></script> 
+        <link rel="stylesheet" href="./Fitness/style.css">
     </head>
     
     <body>
-        <div id = "weightGraph" style = "width: 550px; height: 400px; margin: 0 auto"></div>
-        <div id = "workoutGraph" style = "width: 550px; height: 400px; margin: 0 auto"></div>
-        <div id = "calendar" style = "width: 550px; height: 400px; margin: 0 auto"></div>
+        <div class = "hor">
+            <button id = "prevMonth" onclick="prevMonth()" class = "stolenButton">&lt;&lt;</button>
+            <div>
+                <div id = "weightGraph" style = "width: 1200px; height: 200px; margin: 0 auto"></div>
+                <div id = "workoutGraph" style = "width: 1200px; height: 220px; margin: 0 auto"></div>
+            </div>
+            <button id = "nextMonth" onclick="nextMonth()" class = "stolenButton">&gt;&gt;</button>
+        </div>
         <script language = "JavaScript">
-            $(document).ready(getData);
+        $(document).ready(getData);
         </script>
     </body>
 </html>
